@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASTRA-9 : DERNIER OXYGENE | Page 9/30 - Conduits d'aeration</title>
+<!-- Typographie principale obligatoire -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     FONDS D'ÉCRAN SÉLECTIONNABLES (100 % CSS, sans JavaScript)
+     Ces 5 boutons radio sont cachés mais restent sélectionnables
+     via les <label> visibles placés dans le menu d'accueil.
+     Le CSS réagit grâce à  body:has(#id:checked).
+     Ils doivent rester les premiers enfants de <body> pour que
+     le sélecteur CSS fonctionne.
+     ============================================================ -->
+<input type="radio" name="fond" id="theme-espace"       class="theme-radio" checked>
+<input type="radio" name="fond" id="theme-couloir"      class="theme-radio">
+<input type="radio" name="fond" id="theme-observatoire" class="theme-radio">
+<input type="radio" name="fond" id="theme-cockpit"      class="theme-radio">
+<input type="radio" name="fond" id="theme-alerte"      class="theme-radio">
+<input type="radio" name="fond" id="theme-nebuleuse"   class="theme-radio">
+<input type="radio" name="fond" id="theme-toxique"    class="theme-radio">
+<input type="radio" name="fond" id="theme-glace"      class="theme-radio">
+<input type="radio" name="fond" id="theme-mars"       class="theme-radio">
+<input type="radio" name="fond" id="theme-or"         class="theme-radio">
+
+<!-- ============================================================
+     MODE CORRIGÉ (100 % CSS, sans JavaScript)
+     La case à cocher ci-dessous active l'affichage des réponses
+     (VOIE SÛRE / DÉTOUR / MORT) écrites dans chaque choix.
+     ============================================================ -->
+<input type="checkbox" id="mode-correction" class="mode-toggle">
+
+
+<!-- Barre d'outils visible seulement en mode corrigé -->
+<div class="debug-bar">
+  <strong>MODE CORRIGÉ ACTIVÉ</strong>
+  <span>Les conséquences de chaque choix sont affichées. Utilise cette vue pour corriger.</span>
+</div>
+
+<!-- Contexte, illustrations et instructions — cadre 16:9 -->
+<div class="intro-screen" id="menu">
+  <div class="intro-inner">
+
+    <div class="intro-col intro-left">
+      <!-- Titre façon affiche de film -->
+      <div class="intro-head">
+        <p class="intro-kicker">LIVRE-JEU INTERACTIF · HTML + CSS + JS</p>
+        <h2 class="intro-title"><span class="t-num">ASTRA-9</span><span class="t-sub">DERNIER OXYGÈNE</span></h2>
+        <div class="intro-rule" aria-hidden="true"></div>
+      </div>
+
+      <blockquote class="intro-quote">
+        <p>« Réserves d'oxygène : 6 heures… erreur… erreur… Ne me faites pas confiance. »</p>
+        <cite>— S.O.L.I., 03 h 12</cite>
+      </blockquote>
+
+      <p class="intro-ctx">Tu es astronaute à bord de la station <b>ASTRA-9</b>. L'IA <b>S.O.L.I.</b> a vidé les réserves d'air. Il te reste <b>6 heures</b> pour atteindre la navette d'évacuation.</p>
+
+      <div class="intro-rules">
+        <p class="intro-rules-t">CHAQUE SECTEUR TE PROPOSE <b>3 CHOIX</b></p>
+        <ul class="intro-legende">
+          <li><span class="lg lg-safe">A</span> <span>Voie sûre<em>tu ne perds rien</em></span></li>
+          <li><span class="lg lg-warn">B</span> <span>Détour<em>tu sautes des pages</em></span></li>
+          <li><span class="lg lg-dead">C</span> <span>Mortel<em>fin immédiate</em></span></li>
+        </ul>
+      </div>
+
+      <p class="intro-tip">Les 3 boutons se ressemblent. <b>Lis l'indice jaune</b> pour déduire lequel est sûr — et méfie-toi de S.O.L.I.</p>
+    </div>
+
+    <div class="intro-col intro-right">
+      <!-- Image principale avec angles techniques et voile degrade -->
+      <figure class="intro-shot">
+        <img src="images/espace.avif" alt="La Terre vue depuis la station ASTRA-9">
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
+        <figcaption>SECTEUR 01 — MODULE CRYO</figcaption>
+      </figure>
+
+      <div class="gal-row">
+        <img src="images/astronaute.jpg" alt="Astronaute en apesanteur au-dessus de la Terre">
+        <img src="images/vaisseau.jpg"   alt="Baie d'un vaisseau spatial">
+        <img src="images/spaceship.jpg"  alt="Couloir rouge d'un vaisseau">
+      </div>
+
+      <a class="btn-start" href="page01-reveil-urgence.html#page1"><span class="prompt" aria-hidden="true">&gt;</span> COMMENCER L'AVENTURE</a>
+
+      <!-- Barre de statistiques -->
+      <ul class="intro-stats">
+        <li><b>30</b><span>secteurs</span></li>
+        <li><b>7</b><span>fins possibles</span></li>
+        <li><b>1</b><span>survivant</span></li>
+        <li><b>1</b><span>mini-jeu en JS</span></li>
+      </ul>
+
+      <nav class="intro-nav">
+        <a href="#sommaire">SOMMAIRE</a>
+        <a href="#journal">JOURNAL DE BORD</a>
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     ANIMATIONS DU FOND D'ÉCRAN (100 % CSS, sans JavaScript)
+     Ces calques sont toujours présents mais REPONDABLES (opacity:0).
+     Chaque thème activethose qui lui sont propres via
+     body:has(#theme-xxx:checked). Voir la section 16 du CSS.
+     aria-hidden : purement décoratif, invisible pour les lecteurs d'écran.
+     ============================================================ -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="fx-stars"></div>     <!-- champ d'étoiles scintillant -->
+  <div class="fx-neb1"></div>      <!-- nébuleuse qui dérive -->
+  <div class="fx-neb2"></div>      <!-- 2e nébuleuse, sens opposé -->
+  <div class="fx-rings"></div>     <!-- anneaux / radar qui tourne -->
+  <div class="fx-scan"></div>      <!-- bandes de scan verticales -->
+  <div class="fx-sweep"></div>     <!-- balayage / météore -->
+  <div class="fx-pulse"></div>     <!-- halo coloré qui bat -->
+  <div class="fx-flash"></div>     <!-- stroboscope d'urgence -->
+</div>
+
+<!-- ============================================================
+     SÉLECTEUR DE FOND D'ÉCRAN — coin bas-gauche de la page.
+     Reste accessible pendant tout le jeu (le jeu ne recharge
+     jamais la page, donc le thème choisi reste actif).
+     ============================================================ -->
+<div class="theme-picker">
+  <p class="theme-picker-title" title="Choisir le fond d'écran">✦</p>
+  <div class="theme-options">
+    <label class="theme-opt" for="theme-espace"><span data-nom="Espace"        aria-label="Thème Espace">🌌</span></label>
+    <label class="theme-opt" for="theme-couloir"><span data-nom="Couloir rouge" aria-label="Thème Couloir rouge">🔴</span></label>
+    <label class="theme-opt" for="theme-observatoire"><span data-nom="Observatoire" aria-label="Thème Observatoire">🛰️</span></label>
+    <label class="theme-opt" for="theme-cockpit"><span data-nom="Cockpit"       aria-label="Thème Cockpit">🚀</span></label>
+    <label class="theme-opt" for="theme-alerte"><span data-nom="Alerte O2"     aria-label="Thème Alerte oxygène">⚠️</span></label>
+    <label class="theme-opt" for="theme-nebuleuse"><span data-nom="Nébuleuse"   aria-label="Thème Nébuleuse">🌠</span></label>
+    <label class="theme-opt" for="theme-toxique"><span data-nom="Toxique"      aria-label="Thème Toxique">☣️</span></label>
+    <label class="theme-opt" for="theme-glace"><span data-nom="Glace"         aria-label="Thème Glace">❄️</span></label>
+    <label class="theme-opt" for="theme-mars"><span data-nom="Mars"          aria-label="Thème Mars">🪐</span></label>
+    <label class="theme-opt" for="theme-or"><span data-nom="Or"             aria-label="Thème Or">✨</span></label>
+  </div>
+  <!-- La cle ouvre le mode corrige (reponses affichees) -->
+  <label class="theme-key" for="mode-correction" title="Mode corrigé : afficher la réponse de chaque choix">
+    <span aria-label="Activer le mode corrigé">⚙️</span>
+  </label>
+</div>
+
+<!-- ================= CONTENEUR 16:9 (paysage) ================= -->
+<div class="screen-container" role="main" aria-label="Livre-jeu ASTRA-9">
+  <div class="nebula"></div>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="grid-floor"></div>
+  <div class="scanline"></div>
+
+  <div class="pages">
+
+    <!-- ============ SOMMAIRE ============ -->
+    <section id="sommaire" class="page sommaire">
+      <div class="page-header">
+        <span class="badge">SOMMAIRE</span>
+        <h2>LES 30 SECTEURS</h2>
+        <div class="o2-wrap">Accès libre</div>
+      </div>
+      <div class="page-body">
+        <p class="status warning"><strong>⚠ Spoiler !</strong> Ce sommaire donne accès à toutes les pages, y compris la fin. Il est pratique pour corriger ou pour reprendre après une mort, mais il casse le suspense. Joueurs : regardez plutôt la carte de la route dans le journal.</p>
+        <div class="sommaire-grid">
+          <a href="page01-reveil-urgence.html#page1"  class="som-item">01 · Réveil d'urgence</a>
+          <a href="page02-couloir-sous-alarme.html#page2"  class="som-item">02 · Couloir sous alarme</a>
+          <a href="page03-secteur-medical.html#page3"  class="som-item">03 · Secteur médical</a>
+          <a href="page04-infirmerie.html#page4"  class="som-item">04 · Infirmerie</a>
+          <a href="page05-salle-des-machines.html#page5"  class="som-item">05 · Salle des machines</a>
+          <a href="page06-reacteur-plasma.html#page6"  class="som-item">06 · Réacteur à plasma</a>
+          <a href="page07-fin-brulure-plasma.html#page7"  class="som-item som-death">07 · ? Fin : brûlure</a>
+          <a href="page08-serre-botanique.html#page8"  class="som-item">08 · Serre botanique</a>
+          <a href="page09-conduits-aeration.html#page9"  class="som-item">09 · Conduits d'aération</a>
+          <a href="page10-laboratoire-ia.html#page10" class="som-item">10 · Laboratoire S.O.L.I.</a>
+          <a href="page11-fin-assimilation.html#page11" class="som-item som-death">11 · ? Fin : assimilation</a>
+          <a href="page12-centre-de-donnees.html#page12" class="som-item">12 · Centre de données</a>
+          <a href="page13-armurerie.html#page13" class="som-item">13 · Armurerie</a>
+          <a href="page14-fin-sentinelle.html#page14" class="som-item som-death">14 · ? Fin : sentinelle</a>
+          <a href="page15-dock-cargo.html#page15" class="som-item">15 · Dock cargo</a>
+          <a href="page16-sas-depressurise.html#page16" class="som-item">16 · Sas dépressurisé</a>
+          <a href="page17-observatoire.html#page17" class="som-item">17 · Observatoire</a>
+          <a href="page18-cantine-reserves-o2.html#page18" class="som-item">18 · Cantine / réserves O2</a>
+          <a href="page19-fin-poison.html#page19" class="som-item som-death">19 · ? Fin : poison</a>
+          <a href="page20-atelier-maintenance.html#page20" class="som-item">20 · Atelier de maintenance</a>
+          <a href="page21-noyau-energie.html#page21" class="som-item">21 · Noyau d'énergie</a>
+          <a href="page22-passerelle-commandement.html#page22" class="som-item">22 · Passerelle commandement</a>
+          <a href="page23-fin-decompression.html#page23" class="som-item som-death">23 · ? Fin : décompression</a>
+          <a href="page24-hangar-c.html#page24" class="som-item">24 · Hangar C</a>
+          <a href="page25-soute-carburant.html#page25" class="som-item">25 · Soute à carburant</a>
+          <a href="page26-sas-embarquement.html#page26" class="som-item">26 · Sas d'embarquement</a>
+          <a href="page27-fin-incendie.html#page27" class="som-item som-death">27 · ? Fin : incendie</a>
+          <a href="page28-cockpit-prelancement.html#page28" class="som-item">28 · Cockpit / pré-lancement</a>
+          <a href="page29-fin-ejection.html#page29" class="som-item som-death">29 · ? Fin : éjection</a>
+          <a href="page30-victoire.html#page30" class="som-item som-victory">30 · ? Victoire</a>
+        </div>
+      </div>
+      <div class="choice-group">
+        <a class="btn-choice btn-safe"    href="page01-reveil-urgence.html#page1">Commencer au début<small>PAGE 1</small></a>
+        <a class="btn-choice btn-warning" href="#journal">Journal de bord<small>INVENTAIRE</small></a>
+        <a class="btn-choice btn-danger"  href="#menu">Retour à l'accueil<small>MENU</small></a>
+      </div>
+    </section>
+
+    <!-- ============ JOURNAL DE BORD ============ -->
+    <section id="journal" class="page journal">
+      <div class="page-header">
+        <span class="badge">JOURNAL DE BORD</span>
+        <h2>CE QU'IL FAUT TROUVER</h2>
+        <div class="o2-wrap">Mon objectif</div>
+      </div>
+      <div class="page-body">
+        <p class="status warning">Page de référence. Note sur une feuille ce que tu as déjà récupéré — cette liste ne se coche pas toute seule (impossible sans JavaScript).</p>
+        <ul class="journal-list">
+          <li><b>Le respirateur</b> <span>Secteur médical (03) — +20 % d'O2. Ne bois pas la fiole sans étiquette.</span></li>
+          <li><b>Le fusible de secours</b> <span>Infirmerie (04) — sert à redémarrer le noyau d'énergie (21).</span></li>
+          <li><b>Le code 7-7-9</b> <span>Centre de données (12) — ouvre l'armurerie (13). Ne branche pas la clé USB.</span></li>
+          <li><b>Le coupeur de plasma</b> <span>Armurerie (13) — pour couper les jambes du robot garde.</span></li>
+          <li><b>La combinaison d'évacuation</b> <span>Atelier (20) — il manque un joint, répare-le avant le sas (26).</span></li>
+          <li><b>Le carburant</b> <span>Soute (25) — charge-le avant d'aller au sas d'embarquement.</span></li>
+        </ul>
+        <p class="status success">Rappel : S.O.L.I. ment. Quand elle insiste pour que tu prennes un risque, c'est presque toujours le piège.</p>
+
+        <div class="route-map">
+          <h3 class="route-title">?LA ROUTE DE LA SURVIE</h3>
+          <p class="route-note">Voici le chemin sûr, du cryo au décollage. 22 étapes, aucune mort. Spoiler : les autres chemins existent, mais ils coûtent cher.</p>
+          <ol class="route">
+            <li><a href="page01-reveil-urgence.html#page1">01 Cryo</a></li>
+            <li><a href="page02-couloir-sous-alarme.html#page2">02 Couloir A</a></li>
+            <li><a href="page03-secteur-medical.html#page3">03 Médical</a></li>
+            <li><a href="page04-infirmerie.html#page4">04 Infirmerie</a></li>
+            <li><a href="page05-salle-des-machines.html#page5">05 Machines</a></li>
+            <li><a href="page06-reacteur-plasma.html#page6">06 Réacteur</a></li>
+            <li class="route-skip">07 <s>et 11</s></li>
+            <li><a href="page08-serre-botanique.html#page8">08 Serre</a></li>
+            <li><a href="page09-conduits-aeration.html#page9">09 Conduits</a></li>
+            <li><a href="page10-laboratoire-ia.html#page10">10 Labo IA</a></li>
+            <li class="route-skip">11 <s>et 14</s></li>
+            <li><a href="page12-centre-de-donnees.html#page12">12 Données</a></li>
+            <li><a href="page13-armurerie.html#page13">13 Armurerie</a></li>
+            <li class="route-skip">14 <s>et 19</s></li>
+            <li><a href="page15-dock-cargo.html#page15">15 Dock</a></li>
+            <li><a href="page16-sas-depressurise.html#page16">16 Sas</a></li>
+            <li><a href="page17-observatoire.html#page17">17 Observatoire</a></li>
+            <li><a href="page18-cantine-reserves-o2.html#page18">18 Cantine</a></li>
+            <li class="route-skip">19 <s>et 23</s></li>
+            <li><a href="page20-atelier-maintenance.html#page20">20 Atelier</a></li>
+            <li><a href="page21-noyau-energie.html#page21">21 Noyau</a></li>
+            <li><a href="page22-passerelle-commandement.html#page22">22 Passerelle</a></li>
+            <li class="route-skip">23</li>
+            <li><a href="page24-hangar-c.html#page24">24 Hangar</a></li>
+            <li><a href="page25-soute-carburant.html#page25">25 Soute</a></li>
+            <li><a href="page26-sas-embarquement.html#page26">26 Sas embarq.</a></li>
+            <li class="route-skip">27</li>
+            <li><a href="page28-cockpit-prelancement.html#page28">28 Cockpit</a></li>
+            <li class="route-skip">29</li>
+            <li><a href="page30-victoire.html#page30" class="route-win">30 ? Victoire</a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="choice-group">
+        <a class="btn-choice btn-safe"    href="#sommaire">?? Sommaire<small>30 SECTEURS</small></a>
+        <a class="btn-choice btn-warning" href="page01-reveil-urgence.html#page1">? Recommencer<small>PAGE 1</small></a>
+        <a class="btn-choice btn-danger"  href="#menu">? Accueil<small>MENU</small></a>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 9 : CONDUITS D'AÉRATION ============ -->
+    <section id="page9" class="page">
+      <div class="page-header"><span class="badge">PAGE 09 / 30 • CONDUITS</span><h2>CONDUITS D'AÉRATION</h2><div class="o2-wrap">O2 72%<span class="o2-bar"><span class="o2-fill" style="width:72%"></span></span></div></div>
+      <div class="page-body">
+        <img src="conduit.jpg" alt="Conduit d aeration etrobot de nettoyage" class="page-figure" loading="lazy" decoding="async">
+        <p class="story">Tu avances en rampant dans le tuyau. En dessous : le labo IA. À côté : un <strong>robot de nettoyage cassé</strong>, la bouche ouverte, qui dort. L'air devient dur à respirer.</p>
+        <p class="status warning">Fais zéro bruit. Le robot entend les sons.</p>
+        <p class="indice">Le robot entend les sons : reste silencieux.</p>
+      </div>
+      <div class="choice-group">
+        <a class="btn-choice btn-danger" href="page14-fin-sentinelle.html#page14">Donner un coup de pied au robot<small>DÉCHIQUETÉ</small></a>
+        <a class="btn-choice btn-warning" href="page13-armurerie.html#page13">Glisser vers l'armurerie<small>DÉTOUR ARMÉ</small></a>
+        <a class="btn-choice btn-safe" href="page10-laboratoire-ia.html#page10">Descendre doucement au labo IA<small>VOIE SÛRE</small></a>
+      </div>
+    </section>
+
+  </div><!-- /pages -->
+</div>
+
+<div class="hint">
+  <a class="btn-menu" href="#menu">? MENU</a>
+  <a class="btn-menu" href="#sommaire">SOMMAIRE</a>
+  <a class="btn-menu" href="#journal">?? JOURNAL</a>
+</div>
+
+<!--
+NOTES PÉDAGOGIQUES :
+- Chaque .page contient EXACTEMENT 3 liens <a> dans .choice-group.
+- Voie sûre (btn-safe) : 1>2>3>4>5>6>8>9>10>12>13>15>16>17>18>20>21>22>24>25>26>28>30.
+- Détours (btn-warning) : rejoignent un secteur existant avec malus O2 narratif.
+- Morts (btn-danger) : mènent aux 7 Game Over (7,11,14,19,23,27,29) qui rebouclent vers #page1.
+- Pour DURCIR le jeu : mélangez l'ordre des boutons et uniformisez les couleurs des .btn-*.
+-->
+
+<!-- ============================================================
+     MINI-JEU JAVASCRIPT
+     Le reste du livre fonctionne toujours en 100% HTML + CSS.
+     Seul ce mini-jeu (secteur 02) utilise du JavaScript.
+     Le script ne fait rien s'il ne trouve pas #mg sur la page.
+     ============================================================ -->
+</body>
+</html>
+
