@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTRA-9 : DERNIER OXYGÈNE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .home-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      background: rgba(0, 240, 255, 0.08);
+      color: var(--accent-color);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    .home-signal {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      color: #dfeeff;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .home-signal::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.9);
+    }
+
+    .intro-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .intro-console {
+      position: relative;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(0, 240, 255, 0.26);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(5, 16, 28, 0.8), rgba(10, 12, 22, 0.9));
+      box-shadow: inset 0 0 18px rgba(0, 240, 255, 0.08), 0 0 24px rgba(0, 240, 255, 0.08);
+    }
+
+    .console-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.66rem;
+    }
+
+    .console-head .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff4f6d;
+      box-shadow: 0 0 10px rgba(255, 79, 109, 0.9);
+    }
+
+    .console-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .console-card {
+      padding: 12px 10px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.04);
+    }
+
+    .console-card span {
+      display: block;
+      color: #9ad8ff;
+      font-size: 0.63rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .console-card strong {
+      display: block;
+      color: #eaf9ff;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      line-height: 1;
+    }
+
+    .console-panel {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 3px solid #00ff88;
+      background: rgba(0, 255, 136, 0.06);
+      color: #dffdf1;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .console-panel strong {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <input type="radio" name="fond" id="theme-espace" class="theme-radio" checked>
+  <input type="radio" name="fond" id="theme-couloir" class="theme-radio">
+  <input type="radio" name="fond" id="theme-observatoire" class="theme-radio">
+  <input type="radio" name="fond" id="theme-cockpit" class="theme-radio">
+  <input type="radio" name="fond" id="theme-alerte" class="theme-radio">
+  <input type="radio" name="fond" id="theme-nebuleuse" class="theme-radio">
+  <input type="radio" name="fond" id="theme-toxique" class="theme-radio">
+  <input type="radio" name="fond" id="theme-glace" class="theme-radio">
+  <input type="radio" name="fond" id="theme-mars" class="theme-radio">
+  <input type="radio" name="fond" id="theme-or" class="theme-radio">
+  <input type="checkbox" id="mode-correction" class="mode-toggle">
+
+  <div class="debug-bar">
+    <strong>MODE CORRIGÉ ACTIVÉ</strong>
+    <span>Les conséquences de chaque choix sont affichées. Utilise cette vue pour corriger.</span>
+  </div>
+
+  <div class="intro-screen" id="menu">
+    <div class="intro-inner">
+      <div class="intro-col intro-left">
+        <div class="intro-head">
+          <span class="home-kicker">LIVRE-JEU INTERACTIF · HTML + CSS + JS</span>
+          <h2 class="intro-title">
+            <span class="t-num">ASTRA-9</span>
+            <span class="t-sub">DERNIER OXYGÈNE</span>
+          </h2>
+          <div class="intro-rule" aria-hidden="true"></div>
+        </div>
+
+        <blockquote class="intro-quote">
+          <p>« Réserves d'oxygène : 6 heures… erreur… erreur… Ne me faites pas confiance. »</p>
+          <cite>— S.O.L.I., 03 h 12</cite>
+        </blockquote>
+
+        <p class="intro-ctx">Tu es astronaute à bord de la station <b>ASTRA-9</b>. L'IA <b>S.O.L.I.</b> a vidé les réserves d'air. Il te reste <b>6 heures</b> pour atteindre la navette d'évacuation.</p>
+
+        <div class="intro-rules">
+          <p class="intro-rules-t">CHAQUE SECTEUR TE PROPOSE <b>3 CHOIX</b></p>
+          <ul class="intro-legende">
+            <li><span class="lg lg-safe">A</span> <span>Voie sûre<em>tu ne perds rien</em></span></li>
+            <li><span class="lg lg-warn">B</span> <span>Détour<em>tu sautes des pages</em></span></li>
+            <li><span class="lg lg-dead">C</span> <span>Mortel<em>fin immédiate</em></span></li>
+          </ul>
+        </div>
+
+        <p class="intro-tip">Les 3 boutons se ressemblent. <b>Lis l'indice jaune</b> pour déduire lequel est sûr — et méfie-toi de S.O.L.I.</p>
+        <div class="home-signal">Signal d’alerte : les réserves d’oxygène sont en fuite</div>
+      </div>
+
+      <div class="intro-col intro-right">
+        <div class="intro-console" aria-label="Console de mission ASTRA-9">
+          <div class="console-head">
+            <span>Mission</span>
+            <span class="dot" aria-hidden="true"></span>
+          </div>
+
+          <div class="console-grid">
+            <div class="console-card">
+              <span>Vaisseau</span>
+              <strong>ASTRA-9</strong>
+            </div>
+            <div class="console-card">
+              <span>IA</span>
+              <strong>S.O.L.I.</strong>
+            </div>
+            <div class="console-card">
+              <span>O2</span>
+              <strong>06H</strong>
+            </div>
+            <div class="console-card">
+              <span>État</span>
+              <strong>CRITIQUE</strong>
+            </div>
+          </div>
+
+          <div class="console-panel">
+            <span>Dernière transmission</span>
+            <strong>ÉVACUATION</strong>
+          </div>
+        </div>
+
+        <a class="btn-start" href="page01-reveil-urgence.html#page1"><span class="prompt" aria-hidden="true">&gt;</span> COMMENCER L'AVENTURE</a>
+
+        <ul class="intro-stats">
+          <li><b>30</b><span>secteurs</span></li>
+          <li><b>7</b><span>fins possibles</span></li>
+          <li><b>1</b><span>survivant</span></li>
+          <li><b>1</b><span>mini-jeu en JS</span></li>
+        </ul>
+
+        <nav class="intro-nav">
+          <a href="page01-reveil-urgence.html#sommaire">SOMMAIRE</a>
+          <a href="page01-reveil-urgence.html#journal">JOURNAL DE BORD</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="fx-stars"></div>
+    <div class="fx-neb1"></div>
+    <div class="fx-neb2"></div>
+    <div class="fx-rings"></div>
+    <div class="fx-scan"></div>
+    <div class="fx-sweep"></div>
+    <div class="fx-pulse"></div>
+    <div class="fx-flash"></div>
+  </div>
+
+  <div class="theme-picker">
+    <p class="theme-picker-title" title="Choisir le fond d'écran">✦</p>
+    <div class="theme-options">
+      <label class="theme-opt" for="theme-espace"><span data-nom="Espace" aria-label="Thème Espace">🌌</span></label>
+      <label class="theme-opt" for="theme-couloir"><span data-nom="Couloir rouge" aria-label="Thème Couloir rouge">🔴</span></label>
+      <label class="theme-opt" for="theme-observatoire"><span data-nom="Observatoire" aria-label="Thème Observatoire">🛰️</span></label>
+      <label class="theme-opt" for="theme-cockpit"><span data-nom="Cockpit" aria-label="Thème Cockpit">🚀</span></label>
+      <label class="theme-opt" for="theme-alerte"><span data-nom="Alerte O2" aria-label="Thème Alerte oxygène">⚠️</span></label>
+      <label class="theme-opt" for="theme-nebuleuse"><span data-nom="Nébuleuse" aria-label="Thème Nébuleuse">🌠</span></label>
+      <label class="theme-opt" for="theme-toxique"><span data-nom="Toxique" aria-label="Thème Toxique">☣️</span></label>
+      <label class="theme-opt" for="theme-glace"><span data-nom="Glace" aria-label="Thème Glace">❄️</span></label>
+      <label class="theme-opt" for="theme-mars"><span data-nom="Mars" aria-label="Thème Mars">🪐</span></label>
+      <label class="theme-opt" for="theme-or"><span data-nom="Or" aria-label="Thème Or">✨</span></label>
+    </div>
+    <label class="theme-key" for="mode-correction" title="Mode corrigé : afficher la réponse de chaque choix">
+      <span aria-label="Activer le mode corrigé">⚙️</span>
+    </label>
+  </div>
+</body>
+</html>
